@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Lacquer|Lato:400,700&display=swap");
+        @import url("https://www.fontspace.com/parry-hotter-font-f258");
+       .video-background {
+           position: absolute;
+           top: 0;
+           left: 0;
+           width: 100%;
+           height: 100%;
+           object-fit: cover;
+           z-index: -1;
+       }
+   
+       /* Styling for audio player */
+       audio {
+           
+           max-width: 100px; /* You can adjust the size of the audio player */
+           margin-top: 3%;
+           margin-left: 20px;
+           border-radius: 5px;
+          /* background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+            /* Space around the controls */
+          
+       }
+   
+       /* Optional: Customize audio controls' appearance */
+       audio::-webkit-media-controls-panel {
+           background-color: #333; /* Dark background */
+           border-radius: 10px;
+       }
+   
+       audio::-webkit-media-controls-play-button {
+           background-color: #095d92; /* Custom play button color */
+           border-radius: 50%;
+       }
+   
+       audio::-webkit-media-controls-volume-slider {
+           background-color: #2166cd; /* Volume slider color */
+       }
+   
+       audio::-webkit-media-controls-mute-button {
+           background-color: #1c61b6; /* Mute button color */
+           border-radius: 50%;
+       }
+       .mappas{
+        padding-left: 40%;
+        margin-top: 3%;
+    }
+       </style>
+    {% block head %}{% endblock %}
+</head>
+<body>
+   
+    <img src="https://vignette.wikia.nocookie.net/fictionalcrossover/images/6/6a/A_Harry_Potter_logo.png/revision/latest/scale-to-width-down/340?cb=20150814024523" class="mappas">
+
+
+<video autoplay muted loop class="video-background">
+    <source src="{{ url_for('static', filename='video.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+</video>
+
+
+<audio controls autoplay loop>
+    <source src="{{ url_for('static', filename='hedwigs.mp3') }}" type="audio/mp3">
+    Your browser does not support the audio element.
+</audio>
+
+    
+{% block body %}    
+    {% endblock %}
+
+    
+</body>
+</html>

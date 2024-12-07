@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<style>
+    .search-bar-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center; 
+}
+.random-bar-container{
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+    text-align: center; 
+}
+
+    .search-bar{
+        padding: 10px;
+        width: 300px;
+        font-size: 16px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        background-color: rgba(96, 111, 136, 0.5);
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .search-bar:focus {
+        outline: none;
+        border-color: #1c0889;
+    }
+    .head{
+        padding-left: 37%;
+        margin-top: 4%;
+        font-family: "Lacquer",sans-serif;
+        font-size: 40px;
+        color: #051a3a;
+    }
+
+    .search-button,.random-button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color:
+        #545b95;
+        border: none;
+        border-radius: 5px;
+        color: white;
+        cursor: pointer;
+    }
+
+    .search-button:hover,.random-button:hover {
+        background-color: #26345f;
+    }
+    .mappas{
+        padding-left: 40%;
+        margin-top: 3%;
+    }
+   
+</style>
+{% endblock %}
+
+{% block body %}
+<h1 class="head">Character Encyclopedia</h1>
+
+
+<div class="search-bar-container">
+    <form action="{{ url_for('search') }}" method="post">
+        <input type="text" name="search-bar" class="search-bar" placeholder="Search for a character..." required>
+        <button type="submit" class="search-button">Search</button>
+    </form>
+    
+</div>
+
+<div class="random-bar-container">
+    <form action="{{ url_for('random_c')}}" method="post">
+        
+        <button type="submit" class="random-button">Get A Random Character</button>
+    </form>
+</div>
+{% endblock %}
+
+
